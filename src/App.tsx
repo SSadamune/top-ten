@@ -1,23 +1,27 @@
-import React from "react";
-import logo from "./logo.svg";
+import { useMemo, useState } from "react";
 import "./App.css";
+import { QuestionCategory } from "./types";
+import { CARD_CATEGORY } from "./constants";
 
 function App() {
+  const [selectedCategories, setSelectedCategories] = useState<
+    QuestionCategory[]
+  >(["normal", "act", "ippon"]);
+
+  const totalCardsQuantity = useMemo(
+    () =>
+      selectedCategories.reduce(
+        (accumulator, currentValue) =>
+          accumulator + (CARD_CATEGORY[currentValue]?.quantity ?? 0),
+        0
+      ),
+    [selectedCategories]
+  );
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>Total cards: {totalCardsQuantity}</p>
       </header>
     </div>
   );
