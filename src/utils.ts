@@ -1,4 +1,9 @@
-import { CARD_CATEGORY, IMAGE_SIZE, SPRITE_COLUMN_COUNT } from "./constants";
+import {
+  CARD_CATEGORY,
+  IMAGE_SIZE,
+  SCALING_FACTOR,
+  SPRITE_COLUMN_COUNT,
+} from "./constants";
 import type { Card, QuestionCategory, SpritesImage } from "./types";
 
 export const getCardFromGlobalIndex = (
@@ -24,8 +29,8 @@ export const getSpritesImage = (card?: Card): SpritesImage | undefined => {
     imageIndex++;
   }
 
-  const xPosition = Math.floor(cardIndex % SPRITE_COLUMN_COUNT) * IMAGE_SIZE[0];
-  const yPosition = Math.floor(cardIndex / SPRITE_COLUMN_COUNT) * IMAGE_SIZE[1];
+  const xPosition = Math.floor(cardIndex % SPRITE_COLUMN_COUNT);
+  const yPosition = Math.floor(cardIndex / SPRITE_COLUMN_COUNT);
 
   return {
     category: card.category,
@@ -36,3 +41,17 @@ export const getSpritesImage = (card?: Card): SpritesImage | undefined => {
 
 export const imageUrl = (image: SpritesImage): string =>
   `/assets/images/sprites/${image.category}_${image.index}.png`;
+
+export const imagePosition = (image: SpritesImage): string =>
+  `-${Math.round(
+    image.position[0] * IMAGE_SIZE[0] * SCALING_FACTOR,
+  )}px -${Math.round(image.position[1] * IMAGE_SIZE[1] * SCALING_FACTOR)}px`;
+
+export const imageSize = (image: SpritesImage): string =>
+  `${Math.round(
+    SPRITE_COLUMN_COUNT * IMAGE_SIZE[0] * SCALING_FACTOR,
+  )}px ${Math.round(
+    CARD_CATEGORY[image.category].imageRowCount[image.index] *
+      IMAGE_SIZE[1] *
+      SCALING_FACTOR,
+  )}px`;

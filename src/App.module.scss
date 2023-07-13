@@ -1,9 +1,11 @@
 .app {
   text-align: center;
+  background-color: #282c34;
+  display: flex;
+  flex-direction: column;
 }
 
 .appHeader {
-  background-color: #282c34;
   min-height: 20vh;
   display: flex;
   flex-direction: column;
@@ -14,9 +16,9 @@
 }
 
 .appBody {
-  background-color: #282c34;
   display: flex;
   justify-content: center;
+  flex: 1 0 80vh;
 }
 
 .button {
@@ -42,8 +44,8 @@
 }
 
 .frame {
-  width: 800px;
-  height: 1118px;
+  width: 320px;
+  height: 447px;
   border: 5px solid #ffffff;
   background-repeat: no-repeat;
 }

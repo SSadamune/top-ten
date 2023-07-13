@@ -2,7 +2,12 @@ import { useCallback, useMemo, useState } from "react";
 import styles from "./App.module.scss";
 import { Card, QuestionCategory } from "./types";
 import { CARD_CATEGORY } from "./constants";
-import { getCardFromGlobalIndex, getSpritesImage } from "./utils";
+import {
+  getCardFromGlobalIndex,
+  getSpritesImage,
+  imagePosition,
+  imageSize,
+} from "./utils";
 import act_0 from "./assets/images/sprites/act_0.png";
 import act_1 from "./assets/images/sprites/act_1.png";
 import ippon_0 from "./assets/images/sprites/ippon_0.png";
@@ -21,7 +26,7 @@ function App() {
   ]);
   const [drawnCard, setDrawCard] = useState<Card | undefined>(undefined);
   const [discardCardsIndex, setDiscardCardsIndex] = useState<Set<number>>(
-    new Set(),
+    new Set()
   );
 
   const images = useMemo<{ [K in `${QuestionCategory}_${number}`]: string }>(
@@ -35,7 +40,7 @@ function App() {
       normal_2: normal_2,
       normal_3: normal_3,
     }),
-    [],
+    []
   );
 
   const totalCardsQuantity = useMemo(
@@ -43,9 +48,9 @@ function App() {
       selectedCategories.reduce(
         (accumulator, currentValue) =>
           accumulator + CARD_CATEGORY[currentValue].quantity,
-        0,
+        0
       ),
-    [selectedCategories],
+    [selectedCategories]
   );
 
   const handleClickDraw = useCallback(() => {
@@ -67,6 +72,7 @@ function App() {
   const image = useMemo(() => getSpritesImage(drawnCard), [drawnCard]);
   const imageFile = useMemo(() => {
     if (!image) return undefined;
+    console.log(imageSize(image));
     return images[`${image?.category}_${image?.index}`];
   }, [image, images]);
 
@@ -87,7 +93,8 @@ function App() {
             className={styles.frame}
             style={{
               backgroundImage: `url(${imageFile})`,
-              backgroundPosition: `-${image.position[0]}px -${image.position[1]}px`,
+              backgroundPosition: imagePosition(image),
+              backgroundSize: imageSize(image),
             }}
           />
         )}
