@@ -1,7 +1,7 @@
 import type { QuestionCategory } from "./types";
 
 export const CARD_CATEGORY: {
-  [K in QuestionCategory]?: {
+  [K in QuestionCategory]: {
     quantity: number;
     displayName: string;
     imageSize: number[];
@@ -28,3 +28,7 @@ export const CARD_CATEGORY: {
     imageSize: [50],
   },
 };
+
+export const IMAGE_SIZE = [800, 1118];
+
+export const SPRITE_COLUMN_COUNT = 10;
