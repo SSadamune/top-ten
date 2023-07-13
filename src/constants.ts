@@ -18,9 +18,9 @@ export const CARD_CATEGORY: {
     imageSize: [50, 32],
   },
   act: {
-    quantity: 90,
+    quantity: 80,
     displayName: "表演",
-    imageSize: [70, 20],
+    imageSize: [70, 10],
   },
   nsfw: {
     quantity: 50,
