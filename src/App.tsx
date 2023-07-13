@@ -26,7 +26,7 @@ function App() {
   ]);
   const [drawnCard, setDrawCard] = useState<Card | undefined>(undefined);
   const [discardCardsIndex, setDiscardCardsIndex] = useState<Set<number>>(
-    new Set()
+    new Set(),
   );
 
   const images = useMemo<{ [K in `${QuestionCategory}_${number}`]: string }>(
@@ -40,7 +40,7 @@ function App() {
       normal_2: normal_2,
       normal_3: normal_3,
     }),
-    []
+    [],
   );
 
   const totalCardsQuantity = useMemo(
@@ -48,10 +48,17 @@ function App() {
       selectedCategories.reduce(
         (accumulator, currentValue) =>
           accumulator + CARD_CATEGORY[currentValue].quantity,
-        0
+        0,
       ),
-    [selectedCategories]
+    [selectedCategories],
   );
+
+  const image = useMemo(() => getSpritesImage(drawnCard), [drawnCard]);
+  const imageFile = useMemo(() => {
+    if (!image) return undefined;
+    console.log(imageSize(image));
+    return images[`${image?.category}_${image?.index}`];
+  }, [image, images]);
 
   const handleClickDraw = useCallback(() => {
     if (discardCardsIndex.size >= totalCardsQuantity) {
@@ -69,24 +76,12 @@ function App() {
     setDiscardCardsIndex(new Set(discardCardsIndex));
   }, [totalCardsQuantity, discardCardsIndex, selectedCategories]);
 
-  const image = useMemo(() => getSpritesImage(drawnCard), [drawnCard]);
-  const imageFile = useMemo(() => {
-    if (!image) return undefined;
-    console.log(imageSize(image));
-    return images[`${image?.category}_${image?.index}`];
-  }, [image, images]);
+  const handleClickClearDiscardPile = useCallback(() => {
+    setDiscardCardsIndex(new Set());
+  }, []);
 
   return (
     <div className={styles.app}>
-      <header className={styles.appHeader}>
-        <span>Total cards: {totalCardsQuantity}</span>
-        <button onClick={handleClickDraw} className={styles.button}>
-          draw!
-        </button>
-        <span>
-          card drawn: {drawnCard?.category} {drawnCard?.index}
-        </span>
-      </header>
       <div className={styles.appBody}>
         {image && (
           <div
@@ -98,6 +93,30 @@ function App() {
             }}
           />
         )}
+      </div>
+      <div className={styles.appFooter}>
+        <button onClick={handleClickDraw} className={styles.drawButton}>
+          draw!
+        </button>
+        <div className={styles.subFooter}>
+          <div className={styles.discardPile}>
+            <div>Discard Pile: {discardCardsIndex.size} cards</div>
+            <button
+              onClick={handleClickClearDiscardPile}
+              className={styles.clearButton}
+            >
+              clear
+            </button>
+          </div>
+          <div className={styles.info}>
+            <div>Total: {totalCardsQuantity} cards</div>
+            {image && (
+              <div>
+                Drawing: {drawnCard?.category}-{drawnCard?.index}
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );
