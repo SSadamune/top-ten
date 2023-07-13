@@ -1,15 +1,23 @@
 {
   "files": {
-    "main.css": "/top-ten/static/css/main.073c9b0a.css",
-    "main.js": "/top-ten/static/js/main.74e4fd6a.js",
+    "main.css": "/top-ten/static/css/main.87256343.css",
+    "main.js": "/top-ten/static/js/main.e8919a30.js",
     "static/js/787.a3183c6c.chunk.js": "/top-ten/static/js/787.a3183c6c.chunk.js",
+    "static/media/act_0.png": "/top-ten/static/media/act_0.f0f5bda075f56e4d4d0b.png",
+    "static/media/normal_0.png": "/top-ten/static/media/normal_0.ffc69b33eb4c341b0587.png",
+    "static/media/normal_1.png": "/top-ten/static/media/normal_1.9a6fb067b4aa2a0fa219.png",
+    "static/media/ippon_0.png": "/top-ten/static/media/ippon_0.dd8d47ddde8f9119e88e.png",
+    "static/media/normal_2.png": "/top-ten/static/media/normal_2.915c9a1e7762ec4680de.png",
+    "static/media/normal_3.png": "/top-ten/static/media/normal_3.0d72d3aa8d1a174e3008.png",
+    "static/media/ippon_1.png": "/top-ten/static/media/ippon_1.d957721263ebdca3242f.png",
+    "static/media/act_1.png": "/top-ten/static/media/act_1.1dabc1df82886cc04fd4.png",
     "index.html": "/top-ten/index.html",
-    "main.073c9b0a.css.map": "/top-ten/static/css/main.073c9b0a.css.map",
-    "main.74e4fd6a.js.map": "/top-ten/static/js/main.74e4fd6a.js.map",
+    "main.87256343.css.map": "/top-ten/static/css/main.87256343.css.map",
+    "main.e8919a30.js.map": "/top-ten/static/js/main.e8919a30.js.map",
     "787.a3183c6c.chunk.js.map": "/top-ten/static/js/787.a3183c6c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.74e4fd6a.js"
+    "static/css/main.87256343.css",
+    "static/js/main.e8919a30.js"
   ]
 }
