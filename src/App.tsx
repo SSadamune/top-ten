@@ -21,7 +21,7 @@ function App() {
   ]);
   const [drawnCard, setDrawCard] = useState<Card | undefined>(undefined);
   const [discardCardsIndex, setDiscardCardsIndex] = useState<Set<number>>(
-    new Set()
+    new Set(),
   );
 
   const images = useMemo<{ [K in `${QuestionCategory}_${number}`]: string }>(
@@ -35,7 +35,7 @@ function App() {
       normal_2: normal_2,
       normal_3: normal_3,
     }),
-    []
+    [],
   );
 
   const totalCardsQuantity = useMemo(
@@ -43,9 +43,9 @@ function App() {
       selectedCategories.reduce(
         (accumulator, currentValue) =>
           accumulator + CARD_CATEGORY[currentValue].quantity,
-        0
+        0,
       ),
-    [selectedCategories]
+    [selectedCategories],
   );
 
   const handleClickDraw = useCallback(() => {
@@ -62,13 +62,11 @@ function App() {
     setDrawCard(card);
     discardCardsIndex.add(globalIndex);
     setDiscardCardsIndex(new Set(discardCardsIndex));
-    console.log(globalIndex, card);
   }, [totalCardsQuantity, discardCardsIndex, selectedCategories]);
 
   const image = useMemo(() => getSpritesImage(drawnCard), [drawnCard]);
   const imageFile = useMemo(() => {
     if (!image) return undefined;
-    console.log(image);
     return images[`${image?.category}_${image?.index}`];
   }, [image, images]);
 
