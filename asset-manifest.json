@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/top-ten/static/css/main.87256343.css",
-    "main.js": "/top-ten/static/js/main.bb690d65.js",
+    "main.css": "/top-ten/static/css/main.50a55efd.css",
+    "main.js": "/top-ten/static/js/main.8c87e7dd.js",
     "static/js/787.a3183c6c.chunk.js": "/top-ten/static/js/787.a3183c6c.chunk.js",
     "static/media/act_0.png": "/top-ten/static/media/act_0.f0f5bda075f56e4d4d0b.png",
     "static/media/normal_0.png": "/top-ten/static/media/normal_0.ffc69b33eb4c341b0587.png",
@@ -12,12 +12,12 @@
     "static/media/ippon_1.png": "/top-ten/static/media/ippon_1.d957721263ebdca3242f.png",
     "static/media/act_1.png": "/top-ten/static/media/act_1.1dabc1df82886cc04fd4.png",
     "index.html": "/top-ten/index.html",
-    "main.87256343.css.map": "/top-ten/static/css/main.87256343.css.map",
-    "main.bb690d65.js.map": "/top-ten/static/js/main.bb690d65.js.map",
+    "main.50a55efd.css.map": "/top-ten/static/css/main.50a55efd.css.map",
+    "main.8c87e7dd.js.map": "/top-ten/static/js/main.8c87e7dd.js.map",
     "787.a3183c6c.chunk.js.map": "/top-ten/static/js/787.a3183c6c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.87256343.css",
-    "static/js/main.bb690d65.js"
+    "static/css/main.50a55efd.css",
+    "static/js/main.8c87e7dd.js"
   ]
 }
