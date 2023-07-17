@@ -8,7 +8,7 @@
 .appBody {
   display: flex;
   justify-content: center;
-  flex: 1 0 75vh;
+  flex: 0 0 70vh;
   align-items: flex-end;
 }
 
@@ -20,11 +20,11 @@
 }
 
 .appFooter {
-  flex: 1 0 25vh;
+  flex: 0 0 30vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  padding-top: calc(10px + 5vh);
   font-size: calc(8px + 2vmin);
 }
 

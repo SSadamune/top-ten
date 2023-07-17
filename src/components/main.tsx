@@ -1,14 +1,14 @@
 import { useCallback, useMemo, useState } from "react";
-import styles from "./App.module.scss";
-import { Card, QuestionCategory } from "./types";
-import { CARD_CATEGORY } from "./constants";
+import styles from "./main.module.scss";
+import { Card, QuestionCategory } from "../types";
+import { CARD_CATEGORY } from "../constants";
 import {
   getCardFromGlobalIndex,
   getSpritesImage,
   imagePosition,
   imageSize,
-} from "./utils";
-import { images } from "./assets/images/sprites";
+} from "../utils";
+import { images } from "../assets/images/sprites";
 
 function App() {
   // TODO: set
