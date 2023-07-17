@@ -1,10 +1,26 @@
 import type { QuestionCategory } from "./types";
 
+/**
+ * Constants related to the card categories and its corresponding sprite image resource files
+ */
 export const CARD_CATEGORY: {
   [K in QuestionCategory]: {
+    /**
+     * Quantity of cards in this card category
+     */
     quantity: number;
+    /**
+     * Display name of this card category
+     */
     displayName: string;
+    /**
+     * The number of card images contained in each sprite image file corresponding to this card category
+     */
     imageSize: number[];
+    /**
+     * The number of rows in each sprite image corresponding to this card type
+     * (including empty rows, i.e., black areas at the bottom of the image files)
+     */
     imageRowCount: number[];
   };
 } = {
@@ -34,8 +50,22 @@ export const CARD_CATEGORY: {
   },
 };
 
+/**
+ * The dimensions (in pixels) of a card image
+ */
 export const IMAGE_SIZE = [800, 1118];
 
+/**
+ * How many cards are there in each row of the sprite image
+ */
 export const SPRITE_COLUMN_COUNT = 10;
 
-export const SCALING_FACTOR = 0.4;
+/**
+ * The scaling ratio values for card images at each zoom level
+ */
+export const ZOOM_LEVELS = {
+  s: 0.3,
+  m: 0.4,
+  l: 0.6,
+  full: 1,
+};

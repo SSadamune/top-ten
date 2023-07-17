@@ -1,8 +1,8 @@
 import {
   CARD_CATEGORY,
   IMAGE_SIZE,
-  SCALING_FACTOR,
   SPRITE_COLUMN_COUNT,
+  ZOOM_LEVELS,
 } from "./constants";
 import type { Card, QuestionCategory, SpritesImage } from "./types";
 
@@ -42,16 +42,24 @@ export const getSpritesImage = (card?: Card): SpritesImage | undefined => {
 export const imageUrl = (image: SpritesImage): string =>
   `/assets/images/sprites/${image.category}_${image.index}.png`;
 
-export const imagePosition = (image: SpritesImage): string =>
+export const imagePosition = (
+  image: SpritesImage,
+  scalingLevel: keyof typeof ZOOM_LEVELS = "m",
+): string =>
   `-${Math.round(
-    image.position[0] * IMAGE_SIZE[0] * SCALING_FACTOR,
-  )}px -${Math.round(image.position[1] * IMAGE_SIZE[1] * SCALING_FACTOR)}px`;
+    image.position[0] * IMAGE_SIZE[0] * ZOOM_LEVELS[scalingLevel],
+  )}px -${Math.round(
+    image.position[1] * IMAGE_SIZE[1] * ZOOM_LEVELS[scalingLevel],
+  )}px`;
 
-export const imageSize = (image: SpritesImage): string =>
+export const imageSize = (
+  image: SpritesImage,
+  scalingLevel: keyof typeof ZOOM_LEVELS = "m",
+): string =>
   `${Math.round(
-    SPRITE_COLUMN_COUNT * IMAGE_SIZE[0] * SCALING_FACTOR,
+    SPRITE_COLUMN_COUNT * IMAGE_SIZE[0] * ZOOM_LEVELS[scalingLevel],
   )}px ${Math.round(
     CARD_CATEGORY[image.category].imageRowCount[image.index] *
       IMAGE_SIZE[1] *
-      SCALING_FACTOR,
+      ZOOM_LEVELS[scalingLevel],
   )}px`;
