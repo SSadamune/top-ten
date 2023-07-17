@@ -8,14 +8,7 @@ import {
   imagePosition,
   imageSize,
 } from "./utils";
-import act_0 from "./assets/images/sprites/act_0.png";
-import act_1 from "./assets/images/sprites/act_1.png";
-import ippon_0 from "./assets/images/sprites/ippon_0.png";
-import ippon_1 from "./assets/images/sprites/ippon_1.png";
-import normal_0 from "./assets/images/sprites/normal_0.png";
-import normal_1 from "./assets/images/sprites/normal_1.png";
-import normal_2 from "./assets/images/sprites/normal_2.png";
-import normal_3 from "./assets/images/sprites/normal_3.png";
+import { images } from "./assets/images/sprites";
 
 function App() {
   // TODO: set
@@ -26,21 +19,7 @@ function App() {
   ]);
   const [drawnCard, setDrawCard] = useState<Card | undefined>(undefined);
   const [discardCardsIndex, setDiscardCardsIndex] = useState<Set<number>>(
-    new Set(),
-  );
-
-  const images = useMemo<{ [K in `${QuestionCategory}_${number}`]: string }>(
-    () => ({
-      act_0: act_0,
-      act_1: act_1,
-      ippon_0: ippon_0,
-      ippon_1: ippon_1,
-      normal_0: normal_0,
-      normal_1: normal_1,
-      normal_2: normal_2,
-      normal_3: normal_3,
-    }),
-    [],
+    new Set()
   );
 
   const totalCardsQuantity = useMemo(
@@ -48,9 +27,9 @@ function App() {
       selectedCategories.reduce(
         (accumulator, currentValue) =>
           accumulator + CARD_CATEGORY[currentValue].quantity,
-        0,
+        0
       ),
-    [selectedCategories],
+    [selectedCategories]
   );
 
   const image = useMemo(() => getSpritesImage(drawnCard), [drawnCard]);
@@ -58,7 +37,7 @@ function App() {
     if (!image) return undefined;
     console.log(imageSize(image));
     return images[`${image?.category}_${image?.index}`];
-  }, [image, images]);
+  }, [image]);
 
   const handleClickDraw = useCallback(() => {
     if (discardCardsIndex.size >= totalCardsQuantity) {
