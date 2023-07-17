@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useState } from "react";
 import styles from "./main.module.scss";
 import { Card, QuestionCategory } from "../types";
-import { CARD_CATEGORY } from "../constants";
+import { CARD_CATEGORY, ZOOM_LEVELS } from "../constants";
 import {
   getCardFromGlobalIndex,
   getSpritesImage,
@@ -12,6 +12,9 @@ import { images } from "../assets/images/sprites";
 
 function App() {
   // TODO: set
+  const [zoomLevelKey] = useState<keyof typeof ZOOM_LEVELS>("m");
+
+  // TODO: set
   const [selectedCategories] = useState<QuestionCategory[]>([
     "normal",
     "act",
@@ -19,7 +22,7 @@ function App() {
   ]);
   const [drawnCard, setDrawCard] = useState<Card | undefined>(undefined);
   const [discardCardsIndex, setDiscardCardsIndex] = useState<Set<number>>(
-    new Set()
+    new Set(),
   );
 
   const totalCardsQuantity = useMemo(
@@ -27,9 +30,9 @@ function App() {
       selectedCategories.reduce(
         (accumulator, currentValue) =>
           accumulator + CARD_CATEGORY[currentValue].quantity,
-        0
+        0,
       ),
-    [selectedCategories]
+    [selectedCategories],
   );
 
   const image = useMemo(() => getSpritesImage(drawnCard), [drawnCard]);
@@ -67,8 +70,8 @@ function App() {
             className={styles.frame}
             style={{
               backgroundImage: `url(${imageFile})`,
-              backgroundPosition: imagePosition(image),
-              backgroundSize: imageSize(image),
+              backgroundPosition: imagePosition(image, zoomLevelKey),
+              backgroundSize: imageSize(image, zoomLevelKey),
             }}
           />
         )}
