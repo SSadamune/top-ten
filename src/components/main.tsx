@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useState } from "react";
-import styles from "./main.module.scss";
+import styles from "./Main.module.scss";
 import { Card, QuestionCategory } from "../types";
 import { CARD_CATEGORY, ZOOM_LEVELS } from "../constants";
 import {
@@ -10,7 +10,7 @@ import {
 } from "../utils";
 import { images } from "../assets/images/sprites";
 
-function App() {
+function Main() {
   // TODO: set
   const [zoomLevelKey] = useState<keyof typeof ZOOM_LEVELS>("m");
 
@@ -22,7 +22,7 @@ function App() {
   ]);
   const [drawnCard, setDrawCard] = useState<Card | undefined>(undefined);
   const [discardCardsIndex, setDiscardCardsIndex] = useState<Set<number>>(
-    new Set(),
+    new Set()
   );
 
   const totalCardsQuantity = useMemo(
@@ -30,9 +30,9 @@ function App() {
       selectedCategories.reduce(
         (accumulator, currentValue) =>
           accumulator + CARD_CATEGORY[currentValue].quantity,
-        0,
+        0
       ),
-    [selectedCategories],
+    [selectedCategories]
   );
 
   const image = useMemo(() => getSpritesImage(drawnCard), [drawnCard]);
@@ -104,4 +104,4 @@ function App() {
   );
 }
 
-export default App;
+export default Main;
