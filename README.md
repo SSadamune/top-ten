@@ -14,8 +14,6 @@ Answer a question based on your number (1-10) so the Cap'ten can get the order r
 
 [Game information at Boardgamegeek.com](https://boardgamegeek.com/boardgame/300905/top-ten)
 
-[German review at Sofahelden.de](https://sofahelden.de/index/artikel/Top-Ten/16919)
-
 ### Game rules
 
 [English rules book](https://boardgamegeek.com/file/download_redirect/233e81fb17c0ce4fd64a73bd7cc265cfa5075fb27370d73c/Top_ten_rules_EN.pdf)
