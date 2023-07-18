@@ -1,6 +1,6 @@
 # Draw a Top-Ten question card
 
-This is a question card drawing tool for board game Top Ten.
+This is a question cards drawing tool (Chinese only) for board game Top Ten.
 
 https://ssadamune.github.io/top-ten/
 
