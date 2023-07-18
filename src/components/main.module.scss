@@ -1,43 +1,46 @@
 .app {
   text-align: center;
-  background-color: #282c34;
   display: flex;
   flex-direction: column;
+  background-color: #282c34;
+  height: 100vh;
 }
 
-.appBody {
+.body {
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
-  flex: 0 0 75vh;
+  flex: 0 1 calc(85vh - 15vmin);
   align-items: flex-end;
 }
 
 .frame {
-  width: 320px;
-  height: 447px;
+  position: absolute;
   border: 5px solid #ffffff;
   background-repeat: no-repeat;
 }
 
-.appFooter {
-  flex: 0 0 25vh;
+.footer {
+  box-sizing: border-box;
+  flex: 0 1 calc(15vh + 15vmin);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding-top: calc(10px + 4vh);
+  justify-content: space-between;
+  padding: calc(8px + 5vmin) 0;
   font-size: calc(8px + 2vmin);
 }
 
 .drawButton {
+  align-self: center;
   display: inline-block;
-  padding: calc(4px + 1vh) calc(24px + 5vw);
+  padding: calc(2px + 1vh) calc(12px + 10vw);
   min-width: 140px;
   border: none;
-  border-radius: 4px;
+  border-radius: calc(2px + 1vh);
   background-color: #007bff;
   color: #ffffff;
   text-align: center;
-  font-size: calc(14px + 2vmin);
+  font-size: calc(14px + 4vmin);
   transition: all 0.3s ease 0s;
   cursor: pointer;
   text-decoration: none;
@@ -49,32 +52,4 @@
   &:focus {
     outline: none;
   }
-}
-
-.subFooter {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  color: #666;
-  margin-top: 16px;
-}
-
-.clearButton {
-  min-width: 80px;
-  padding: 4px 12px;
-  font-size: calc(10px + 2vmin);
-  color: #282c34;
-  background-color: #fff;
-  border: none;
-  border-radius: 4px;
-}
-
-.discardPile {
-  flex: 0 0 45%;
-}
-
-.info {
-  display: flex;
-  flex: 0 0 45%;
-  flex-direction: column;
 }

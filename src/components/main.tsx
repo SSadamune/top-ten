@@ -3,12 +3,14 @@ import styles from "./Main.module.scss";
 import { Card, QuestionCategory } from "../types";
 import { CARD_CATEGORY, ZOOM_LEVELS } from "../constants";
 import {
+  cardSize,
   getCardFromGlobalIndex,
   getSpritesImage,
   imagePosition,
   imageSize,
 } from "../utils";
 import { images } from "../assets/images/sprites";
+import { Settings } from "./settings";
 
 function Main() {
   // TODO: set
@@ -22,7 +24,7 @@ function Main() {
   ]);
   const [drawnCard, setDrawCard] = useState<Card | undefined>(undefined);
   const [discardCardsIndex, setDiscardCardsIndex] = useState<Set<number>>(
-    new Set()
+    new Set(),
   );
 
   const totalCardsQuantity = useMemo(
@@ -30,9 +32,9 @@ function Main() {
       selectedCategories.reduce(
         (accumulator, currentValue) =>
           accumulator + CARD_CATEGORY[currentValue].quantity,
-        0
+        0,
       ),
-    [selectedCategories]
+    [selectedCategories],
   );
 
   const image = useMemo(() => getSpritesImage(drawnCard), [drawnCard]);
@@ -64,11 +66,13 @@ function Main() {
 
   return (
     <div className={styles.app}>
-      <div className={styles.appBody}>
+      <div className={styles.body}>
         {image && (
           <div
             className={styles.frame}
             style={{
+              width: cardSize(zoomLevelKey)[0],
+              height: cardSize(zoomLevelKey)[1],
               backgroundImage: `url(${imageFile})`,
               backgroundPosition: imagePosition(image, zoomLevelKey),
               backgroundSize: imageSize(image, zoomLevelKey),
@@ -76,29 +80,16 @@ function Main() {
           />
         )}
       </div>
-      <div className={styles.appFooter}>
+      <div className={styles.footer}>
         <button onClick={handleClickDraw} className={styles.drawButton}>
           draw!
         </button>
-        <div className={styles.subFooter}>
-          <div className={styles.discardPile}>
-            <div>Discard Pile: {discardCardsIndex.size} cards</div>
-            <button
-              onClick={handleClickClearDiscardPile}
-              className={styles.clearButton}
-            >
-              clear
-            </button>
-          </div>
-          <div className={styles.info}>
-            <div>Total: {totalCardsQuantity} cards</div>
-            {image && (
-              <div>
-                Drawing: {drawnCard?.category}-{drawnCard?.index}
-              </div>
-            )}
-          </div>
-        </div>
+        <Settings
+          totalCardsQuantity={totalCardsQuantity}
+          discardCardsQuantity={discardCardsIndex.size}
+          drawnCard={drawnCard}
+          onClickClearDiscardPile={handleClickClearDiscardPile}
+        />
       </div>
     </div>
   );

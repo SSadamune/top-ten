@@ -63,3 +63,10 @@ export const imageSize = (
       IMAGE_SIZE[1] *
       ZOOM_LEVELS[scalingLevel],
   )}px`;
+
+export const cardSize = (
+  scalingLevel: keyof typeof ZOOM_LEVELS = "m",
+): string[] => [
+  `${IMAGE_SIZE[0] * ZOOM_LEVELS[scalingLevel]}px`,
+  `${IMAGE_SIZE[1] * ZOOM_LEVELS[scalingLevel]}px`,
+];

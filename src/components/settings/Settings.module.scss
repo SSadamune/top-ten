@@ -1,0 +1,53 @@
+$common-padding: calc(8px + 4vmin);
+$icon-size: calc(18px + 6vmin);
+
+.settingIcon {
+  flex: 0 0 calc(18px + 6vmin);
+  width: calc(18px + 6vmin);
+  background-image: url("../../assets/images/icons/settings.svg");
+  background-size: $icon-size;
+  margin-left: $common-padding;
+  cursor: pointer;
+}
+
+.menuContainer {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+}
+
+.menu {
+  box-sizing: border-box;
+  position: absolute;
+  left: $common-padding;
+  bottom: calc($common-padding * 2 + $icon-size);
+  display: flex;
+  justify-content: space-around;
+  width: calc(100vw - $common-padding * 2);
+  height: 60vh;
+  color: #fff;
+  background-color: rgba(40, 44, 52, 0.9);
+  padding: $common-padding;
+  border: 2vmin solid #375a7f;
+  border-radius: 5vmin;
+}
+
+.clearButton {
+  min-width: 80px;
+  padding: 4px 12px;
+  font-size: calc(10px + 2vmin);
+  color: #282c34;
+  background-color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+
+.discardPile {
+  flex: 0 0 45%;
+}
+
+.info {
+  display: flex;
+  flex: 0 0 45%;
+  flex-direction: column;
+}
