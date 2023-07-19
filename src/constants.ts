@@ -1,6 +1,11 @@
 import type { QuestionCategory } from "./types";
 
 /**
+ * All categories of questions
+ */
+export const ALL_CATEGORIES = ["normal", "ippon", "act", "nsfw"];
+
+/**
  * Constants related to the card categories and its corresponding sprite image resource files
  */
 export const CARD_CATEGORY: {
