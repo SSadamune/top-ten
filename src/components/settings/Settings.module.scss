@@ -8,7 +8,16 @@ $item-height: calc(2px + 6vh);
   background-image: url("../../assets/images/icons/settings.svg");
   background-size: $icon-size;
   margin-left: $common-padding;
+  transition: all 0.3s ease 0s;
   cursor: pointer;
+
+  &:hover {
+    background-image: url("../../assets/images/icons/settings-active.svg");
+  }
+
+  &[data-active="true"] {
+    background-image: url("../../assets/images/icons/settings-active.svg");
+  }
 }
 
 .menuContainer {
@@ -25,23 +34,26 @@ $item-height: calc(2px + 6vh);
   display: flex;
   width: calc(100vw - $common-padding * 2);
   height: 60vh;
-  color: #fff;
+  color: #5980aa;
   background-color: rgba(40, 44, 52, 0.95);
   padding: $common-padding;
-  border: 2vmin solid #375a7f;
+  border: 2vmin solid #5980aa;
   border-radius: 5vmin;
   flex-direction: column;
   font-size: calc(10px + 2vmin);
+  font-weight: bold;
 }
 
 .clearButton {
   min-width: 80px;
   height: calc(12px + 4vmin);
   font-size: calc(8px + 2vmin);
-  color: #282c34;
-  background-color: #fff;
+  color: rgba(40, 44, 52, 0.95);
+  background-color: #5980aa;
   border: none;
   border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .menuItem {
@@ -54,7 +66,7 @@ $item-height: calc(2px + 6vh);
   padding-bottom: calc(2px + 2vmin);
 
   &:not(:first-child) {
-    border-top: 2px dashed #375a7f;
+    border-top: 2px dashed #5980aa;
     padding-top: calc(2px + 2vmin);
   }
 }

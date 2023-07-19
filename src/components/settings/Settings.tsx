@@ -36,7 +36,11 @@ export function Settings({
 
   return (
     <>
-      <div className={styles.settingIcon} onClick={handleClickSettingIcon} />
+      <div
+        data-active={showMenu}
+        onClick={handleClickSettingIcon}
+        className={styles.settingIcon}
+      />
       {showMenu && (
         <div
           ref={ref}
@@ -66,7 +70,7 @@ export function Settings({
                 onClick={onClickClearDiscardPile}
                 className={styles.clearButton}
               >
-                {`重置`}
+                {`RESET`}
               </button>
             </div>
           </div>

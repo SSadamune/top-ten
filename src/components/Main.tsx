@@ -21,7 +21,7 @@ function Main() {
   >(["normal", "act", "ippon"]);
   const [drawnCard, setDrawCard] = useState<Card | undefined>(undefined);
   const [discardCardsIndex, setDiscardCardsIndex] = useState<Set<number>>(
-    new Set()
+    new Set(),
   );
 
   const totalCardsQuantity = useMemo(
@@ -29,9 +29,9 @@ function Main() {
       selectedCategories.reduce(
         (accumulator, currentValue) =>
           accumulator + CARD_CATEGORY[currentValue].quantity,
-        0
+        0,
       ),
-    [selectedCategories]
+    [selectedCategories],
   );
 
   const image = useMemo(() => getSpritesImage(drawnCard), [drawnCard]);
@@ -61,11 +61,11 @@ function Main() {
     (category: QuestionCategory) => {
       selectedCategories.includes(category)
         ? setSelectedCategories(
-            selectedCategories.filter((item) => item !== category)
+            selectedCategories.filter((item) => item !== category),
           )
         : setSelectedCategories([category, ...selectedCategories]);
     },
-    [selectedCategories]
+    [selectedCategories],
   );
 
   const handleClickClearDiscardPile = useCallback(() => {

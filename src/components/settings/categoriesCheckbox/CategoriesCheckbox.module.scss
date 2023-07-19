@@ -24,12 +24,10 @@
   flex: 0 0 calc(8px + 2vmin);
   height: calc(8px + 2vmin);
   background-size: calc(8px + 2vmin);
+  background-image: url("../../../assets/images/icons/checkbox-unchecked.svg");
 
   &[data-checked="true"] {
     background-image: url("../../../assets/images/icons/checkbox.svg");
-  }
-  &[data-checked="false"] {
-    background-image: url("../../../assets/images/icons/checkbox-unchecked.svg");
   }
 }
 
