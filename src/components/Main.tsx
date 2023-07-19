@@ -16,15 +16,12 @@ function Main() {
   // TODO: set
   const [zoomLevelKey] = useState<keyof typeof ZOOM_LEVELS>("m");
 
-  // TODO: set
-  const [selectedCategories] = useState<QuestionCategory[]>([
-    "normal",
-    "act",
-    "ippon",
-  ]);
+  const [selectedCategories, setSelectedCategories] = useState<
+    QuestionCategory[]
+  >(["normal", "act", "ippon"]);
   const [drawnCard, setDrawCard] = useState<Card | undefined>(undefined);
   const [discardCardsIndex, setDiscardCardsIndex] = useState<Set<number>>(
-    new Set(),
+    new Set()
   );
 
   const totalCardsQuantity = useMemo(
@@ -32,9 +29,9 @@ function Main() {
       selectedCategories.reduce(
         (accumulator, currentValue) =>
           accumulator + CARD_CATEGORY[currentValue].quantity,
-        0,
+        0
       ),
-    [selectedCategories],
+    [selectedCategories]
   );
 
   const image = useMemo(() => getSpritesImage(drawnCard), [drawnCard]);
@@ -59,6 +56,17 @@ function Main() {
     discardCardsIndex.add(globalIndex);
     setDiscardCardsIndex(new Set(discardCardsIndex));
   }, [totalCardsQuantity, discardCardsIndex, selectedCategories]);
+
+  const handleClickCategoryCheckbox = useCallback(
+    (category: QuestionCategory) => {
+      selectedCategories.includes(category)
+        ? setSelectedCategories(
+            selectedCategories.filter((item) => item !== category)
+          )
+        : setSelectedCategories([category, ...selectedCategories]);
+    },
+    [selectedCategories]
+  );
 
   const handleClickClearDiscardPile = useCallback(() => {
     setDiscardCardsIndex(new Set());
@@ -85,9 +93,11 @@ function Main() {
           draw!
         </button>
         <Settings
+          selectedCategories={selectedCategories}
           totalCardsQuantity={totalCardsQuantity}
           discardCardsQuantity={discardCardsIndex.size}
           drawnCard={drawnCard}
+          onClickCategoryCheckbox={handleClickCategoryCheckbox}
           onClickClearDiscardPile={handleClickClearDiscardPile}
         />
       </div>

@@ -7,6 +7,7 @@ import normal_0 from "./normal_0.png";
 import normal_1 from "./normal_1.png";
 import normal_2 from "./normal_2.png";
 import normal_3 from "./normal_3.png";
+import nsfw_0 from "./nsfw_0.png";
 
 export const images: { [K in `${QuestionCategory}_${number}`]: string } = {
   act_0: act_0,
@@ -17,4 +18,5 @@ export const images: { [K in `${QuestionCategory}_${number}`]: string } = {
   normal_1: normal_1,
   normal_2: normal_2,
   normal_3: normal_3,
+  nsfw_0: nsfw_0,
 };

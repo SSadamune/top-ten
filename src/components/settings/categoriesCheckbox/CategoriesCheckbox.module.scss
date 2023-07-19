@@ -1,0 +1,39 @@
+.wrapper {
+  display: flex;
+
+  width: 100%;
+  flex-direction: column;
+  align-items: start;
+}
+
+.categoryList {
+  margin-top: calc(2px + 1vmin);
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+}
+
+.item {
+  flex: 0 0 50%;
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+}
+
+.checkbox {
+  flex: 0 0 calc(8px + 2vmin);
+  height: calc(8px + 2vmin);
+  background-size: calc(8px + 2vmin);
+
+  &[data-checked="true"] {
+    background-image: url("../../../assets/images/icons/checkbox.svg");
+  }
+  &[data-checked="false"] {
+    background-image: url("../../../assets/images/icons/checkbox-unchecked.svg");
+  }
+}
+
+.label {
+  margin-left: calc(2px + 1vmin);
+  font-size: calc(8px + 2vmin);
+}
