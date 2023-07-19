@@ -38,22 +38,22 @@ export function Settings({
           className={styles.menuContainer}
         >
           <div className={styles.menu}>
-            <div className={styles.discardPile}>
-              <div>Discard Pile: {discardCardsQuantity} cards</div>
+            <div className={styles.menuItem}>
+              <div>合计：{totalCardsQuantity} 张卡</div>
+            </div>
+            {!!drawnCard && (
+              <div className={styles.menuItem}>
+                当前卡牌：{drawnCard?.category}-{drawnCard?.index}
+              </div>
+            )}
+            <div className={styles.menuItem}>
+              <div>弃牌堆：{discardCardsQuantity} 张卡</div>
               <button
                 onClick={onClickClearDiscardPile}
                 className={styles.clearButton}
               >
-                clear
+                重置
               </button>
-            </div>
-            <div className={styles.info}>
-              <div>Total: {totalCardsQuantity} cards</div>
-              {!!drawnCard && (
-                <div>
-                  Drawing: {drawnCard?.category}-{drawnCard?.index}
-                </div>
-              )}
             </div>
           </div>
         </div>
