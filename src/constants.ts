@@ -1,4 +1,4 @@
-import type { QuestionCategory } from "./types";
+import type { QuestionCategory, ZoomLevel } from "./types";
 
 /**
  * All categories of questions
@@ -68,9 +68,11 @@ export const SPRITE_COLUMN_COUNT = 10;
 /**
  * The scaling ratio values for card images at each zoom level
  */
-export const ZOOM_LEVELS = {
+export const ZOOM_LEVELS: {
+  [K in ZoomLevel]: number;
+} = {
   s: 0.3,
   m: 0.4,
   l: 0.6,
-  full: 1,
+  fullSize: 1,
 };

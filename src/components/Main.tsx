@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState } from "react";
 import styles from "./Main.module.scss";
-import { Card, QuestionCategory } from "../types";
+import { Card, QuestionCategory, ZoomLevel } from "../types";
 import { CARD_CATEGORY, ZOOM_LEVELS } from "../constants";
 import {
   cardSize,
@@ -13,15 +13,14 @@ import { images } from "../assets/images/sprites";
 import { Settings } from "./settings";
 
 function Main() {
-  // TODO: set
-  const [zoomLevelKey] = useState<keyof typeof ZOOM_LEVELS>("m");
+  const [zoomLevelKey, setZoomLevelKey] = useState<ZoomLevel>("m");
 
   const [selectedCategories, setSelectedCategories] = useState<
     QuestionCategory[]
   >(["normal", "act", "ippon"]);
   const [drawnCard, setDrawCard] = useState<Card | undefined>(undefined);
   const [discardCardsIndex, setDiscardCardsIndex] = useState<Set<number>>(
-    new Set(),
+    new Set()
   );
 
   const totalCardsQuantity = useMemo(
@@ -29,9 +28,9 @@ function Main() {
       selectedCategories.reduce(
         (accumulator, currentValue) =>
           accumulator + CARD_CATEGORY[currentValue].quantity,
-        0,
+        0
       ),
-    [selectedCategories],
+    [selectedCategories]
   );
 
   const image = useMemo(() => getSpritesImage(drawnCard), [drawnCard]);
@@ -61,11 +60,11 @@ function Main() {
     (category: QuestionCategory) => {
       selectedCategories.includes(category)
         ? setSelectedCategories(
-            selectedCategories.filter((item) => item !== category),
+            selectedCategories.filter((item) => item !== category)
           )
         : setSelectedCategories([category, ...selectedCategories]);
     },
-    [selectedCategories],
+    [selectedCategories]
   );
 
   const handleClickClearDiscardPile = useCallback(() => {
