@@ -33,7 +33,7 @@ $item-height: calc(2px + 6vh);
   bottom: calc($common-padding * 2 + $icon-size);
   display: flex;
   width: calc(100vw - $common-padding * 2);
-  height: 60vh;
+  min-height: 50vh;
   color: #5980aa;
   background-color: rgba(40, 44, 52, 0.95);
   padding: $common-padding;

@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useState } from "react";
 import styles from "./Main.module.scss";
 import { Card, QuestionCategory, ZoomLevel } from "../types";
-import { CARD_CATEGORY, ZOOM_LEVELS } from "../constants";
+import { CARD_CATEGORY } from "../constants";
 import {
   cardSize,
   getCardFromGlobalIndex,
@@ -20,7 +20,7 @@ function Main() {
   >(["normal", "act", "ippon"]);
   const [drawnCard, setDrawCard] = useState<Card | undefined>(undefined);
   const [discardCardsIndex, setDiscardCardsIndex] = useState<Set<number>>(
-    new Set()
+    new Set(),
   );
 
   const totalCardsQuantity = useMemo(
@@ -28,9 +28,9 @@ function Main() {
       selectedCategories.reduce(
         (accumulator, currentValue) =>
           accumulator + CARD_CATEGORY[currentValue].quantity,
-        0
+        0,
       ),
-    [selectedCategories]
+    [selectedCategories],
   );
 
   const image = useMemo(() => getSpritesImage(drawnCard), [drawnCard]);
@@ -60,11 +60,18 @@ function Main() {
     (category: QuestionCategory) => {
       selectedCategories.includes(category)
         ? setSelectedCategories(
-            selectedCategories.filter((item) => item !== category)
+            selectedCategories.filter((item) => item !== category),
           )
         : setSelectedCategories([category, ...selectedCategories]);
     },
-    [selectedCategories]
+    [selectedCategories],
+  );
+
+  const handleClickZoomLevelRadio = useCallback(
+    (level: ZoomLevel) => {
+      setZoomLevelKey(level);
+    },
+    [setZoomLevelKey],
   );
 
   const handleClickClearDiscardPile = useCallback(() => {
@@ -97,6 +104,7 @@ function Main() {
           discardCardsQuantity={discardCardsIndex.size}
           drawnCard={drawnCard}
           onClickCategoryCheckbox={handleClickCategoryCheckbox}
+          onClickZoomLevelRadio={handleClickZoomLevelRadio}
           onClickClearDiscardPile={handleClickClearDiscardPile}
         />
       </div>

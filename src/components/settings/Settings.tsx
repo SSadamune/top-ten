@@ -1,8 +1,8 @@
 import { CARD_CATEGORY } from "../../constants";
-import { Card, QuestionCategory } from "../../types";
+import { Card, QuestionCategory, ZoomLevel } from "../../types";
 import styles from "./Settings.module.scss";
 import { MouseEventHandler, useCallback, useRef, useState } from "react";
-import { CategoriesCheckbox } from "./categoriesCheckbox/CategoriesCheckbox";
+import { CategoriesCheckbox } from "./categoriesCheckbox";
 
 type Props = {
   selectedCategories: QuestionCategory[];
@@ -10,6 +10,7 @@ type Props = {
   discardCardsQuantity: number;
   drawnCard?: Card;
   onClickCategoryCheckbox: (category: QuestionCategory) => void;
+  onClickZoomLevelRadio: (level: ZoomLevel) => void;
   onClickClearDiscardPile: () => void;
 };
 export function Settings({
@@ -55,7 +56,8 @@ export function Settings({
               />
             </div>
             <div className={styles.menuItem}>
-              <div>{`合计：${totalCardsQuantity} 张卡`}</div>
+              {/* TODO */}
+              {/* <ZoomLevelRadio /> */}
             </div>
             {!!drawnCard && (
               <div className={styles.menuItem}>
@@ -64,6 +66,10 @@ export function Settings({
                 } #${drawnCard?.index}`}
               </div>
             )}
+            <div className={styles.menuItem}>
+              <div>{`合计：${totalCardsQuantity} 张卡`}</div>
+            </div>
+
             <div className={styles.menuItem}>
               <div>{`弃牌堆：${discardCardsQuantity} 张卡`}</div>
               <button

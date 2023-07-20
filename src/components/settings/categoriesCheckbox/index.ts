@@ -1,0 +1,1 @@
+export { CategoriesCheckbox } from "./CategoriesCheckbox";
