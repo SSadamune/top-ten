@@ -82,16 +82,17 @@ function Main() {
     <div className={styles.app}>
       <div className={styles.body}>
         {image && (
-          <div
-            className={styles.frame}
-            style={{
-              width: cardSize(zoomLevel)[0],
-              height: cardSize(zoomLevel)[1],
-              backgroundImage: `url(${imageFile})`,
-              backgroundPosition: imagePosition(image, zoomLevel),
-              backgroundSize: imageSize(image, zoomLevel),
-            }}
-          />
+          <div className={styles.frame}>
+            <div
+              style={{
+                width: cardSize(zoomLevel)[0],
+                height: cardSize(zoomLevel)[1],
+                backgroundImage: `url(${imageFile})`,
+                backgroundPosition: imagePosition(image, zoomLevel),
+                backgroundSize: imageSize(image, zoomLevel),
+              }}
+            />
+          </div>
         )}
       </div>
       <div className={styles.footer}>

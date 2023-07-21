@@ -12,12 +12,19 @@
   justify-content: center;
   flex: 0 1 calc(85vh - 15vmin);
   align-items: flex-end;
+  overflow: hidden;
 }
 
 .frame {
-  position: absolute;
-  border: 5px solid #ffffff;
+  max-width: 100%;
+  max-height: calc(100% - 10px);
+  border: 5px solid #5980aa;
   background-repeat: no-repeat;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .footer {
