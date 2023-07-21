@@ -13,7 +13,7 @@ import { images } from "../assets/images/sprites";
 import { Settings } from "./settings";
 
 function Main() {
-  const [zoomLevelKey, setZoomLevelKey] = useState<ZoomLevel>("m");
+  const [zoomLevel, setZoomLevel] = useState<ZoomLevel>("m");
 
   const [selectedCategories, setSelectedCategories] = useState<
     QuestionCategory[]
@@ -69,9 +69,9 @@ function Main() {
 
   const handleClickZoomLevelRadio = useCallback(
     (level: ZoomLevel) => {
-      setZoomLevelKey(level);
+      setZoomLevel(level);
     },
-    [setZoomLevelKey],
+    [setZoomLevel],
   );
 
   const handleClickClearDiscardPile = useCallback(() => {
@@ -85,11 +85,11 @@ function Main() {
           <div
             className={styles.frame}
             style={{
-              width: cardSize(zoomLevelKey)[0],
-              height: cardSize(zoomLevelKey)[1],
+              width: cardSize(zoomLevel)[0],
+              height: cardSize(zoomLevel)[1],
               backgroundImage: `url(${imageFile})`,
-              backgroundPosition: imagePosition(image, zoomLevelKey),
-              backgroundSize: imageSize(image, zoomLevelKey),
+              backgroundPosition: imagePosition(image, zoomLevel),
+              backgroundSize: imageSize(image, zoomLevel),
             }}
           />
         )}
@@ -100,6 +100,7 @@ function Main() {
         </button>
         <Settings
           selectedCategories={selectedCategories}
+          selectedZoomLevel={zoomLevel}
           totalCardsQuantity={totalCardsQuantity}
           discardCardsQuantity={discardCardsIndex.size}
           drawnCard={drawnCard}

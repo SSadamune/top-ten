@@ -6,6 +6,7 @@ type Props = {
   selectedCategories: QuestionCategory[];
   onClickItem: (category: QuestionCategory) => void;
 };
+
 export function CategoriesCheckbox({ selectedCategories, onClickItem }: Props) {
   const allCategoryList = [...ALL_CATEGORIES];
   return (

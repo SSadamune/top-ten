@@ -3,9 +3,11 @@ import { Card, QuestionCategory, ZoomLevel } from "../../types";
 import styles from "./Settings.module.scss";
 import { MouseEventHandler, useCallback, useRef, useState } from "react";
 import { CategoriesCheckbox } from "./categoriesCheckbox";
+import { ZoomLevelRadio } from "./zoomLevelRadio";
 
 type Props = {
   selectedCategories: QuestionCategory[];
+  selectedZoomLevel: ZoomLevel;
   totalCardsQuantity: number;
   discardCardsQuantity: number;
   drawnCard?: Card;
@@ -15,10 +17,12 @@ type Props = {
 };
 export function Settings({
   selectedCategories,
+  selectedZoomLevel,
   totalCardsQuantity,
   discardCardsQuantity,
   drawnCard,
   onClickCategoryCheckbox,
+  onClickZoomLevelRadio,
   onClickClearDiscardPile,
 }: Props) {
   const [showMenu, setShowMenu] = useState(false);
@@ -56,8 +60,10 @@ export function Settings({
               />
             </div>
             <div className={styles.menuItem}>
-              {/* TODO */}
-              {/* <ZoomLevelRadio /> */}
+              <ZoomLevelRadio
+                selectedZoomLevel={selectedZoomLevel}
+                onClickItem={onClickZoomLevelRadio}
+              />
             </div>
             {!!drawnCard && (
               <div className={styles.menuItem}>

@@ -69,10 +69,10 @@ export const SPRITE_COLUMN_COUNT = 10;
  * The scaling ratio values for card images at each zoom level
  */
 export const ZOOM_LEVELS: {
-  [K in ZoomLevel]: number;
+  [K in ZoomLevel]: { zoomRatio: number; displayName: string };
 } = {
-  s: 0.3,
-  m: 0.4,
-  l: 0.6,
-  fullSize: 1,
+  s: { zoomRatio: 0.3, displayName: "小" },
+  m: { zoomRatio: 0.4, displayName: "中" },
+  l: { zoomRatio: 0.6, displayName: "大" },
+  fullSize: { zoomRatio: 1, displayName: "原图" },
 };

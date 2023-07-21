@@ -47,9 +47,9 @@ export const imagePosition = (
   scalingLevel: keyof typeof ZOOM_LEVELS = "m",
 ): string =>
   `-${Math.round(
-    image.position[0] * IMAGE_SIZE[0] * ZOOM_LEVELS[scalingLevel],
+    image.position[0] * IMAGE_SIZE[0] * ZOOM_LEVELS[scalingLevel].zoomRatio,
   )}px -${Math.round(
-    image.position[1] * IMAGE_SIZE[1] * ZOOM_LEVELS[scalingLevel],
+    image.position[1] * IMAGE_SIZE[1] * ZOOM_LEVELS[scalingLevel].zoomRatio,
   )}px`;
 
 export const imageSize = (
@@ -57,16 +57,16 @@ export const imageSize = (
   scalingLevel: keyof typeof ZOOM_LEVELS = "m",
 ): string =>
   `${Math.round(
-    SPRITE_COLUMN_COUNT * IMAGE_SIZE[0] * ZOOM_LEVELS[scalingLevel],
+    SPRITE_COLUMN_COUNT * IMAGE_SIZE[0] * ZOOM_LEVELS[scalingLevel].zoomRatio,
   )}px ${Math.round(
     CARD_CATEGORY[image.category].imageRowCount[image.index] *
       IMAGE_SIZE[1] *
-      ZOOM_LEVELS[scalingLevel],
+      ZOOM_LEVELS[scalingLevel].zoomRatio,
   )}px`;
 
 export const cardSize = (
   scalingLevel: keyof typeof ZOOM_LEVELS = "m",
 ): string[] => [
-  `${IMAGE_SIZE[0] * ZOOM_LEVELS[scalingLevel]}px`,
-  `${IMAGE_SIZE[1] * ZOOM_LEVELS[scalingLevel]}px`,
+  `${IMAGE_SIZE[0] * ZOOM_LEVELS[scalingLevel].zoomRatio}px`,
+  `${IMAGE_SIZE[1] * ZOOM_LEVELS[scalingLevel].zoomRatio}px`,
 ];
