@@ -10,7 +10,7 @@
   box-sizing: border-box;
   display: flex;
   justify-content: center;
-  flex: 0 1 calc(85vh - 15vmin);
+  flex: 0 1 calc(85vh - 12vmin);
   align-items: flex-end;
   overflow: hidden;
 }
@@ -29,11 +29,11 @@
 
 .footer {
   box-sizing: border-box;
-  flex: 0 1 calc(15vh + 15vmin);
+  flex: 0 1 calc(15vh + 12vmin);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: calc(8px + 5vmin) 0;
+  padding: calc(8px + 2vmin) 0 calc(8px + 5vmin);
   font-size: calc(8px + 2vmin);
 }
 
