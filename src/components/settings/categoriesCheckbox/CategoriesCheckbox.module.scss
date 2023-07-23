@@ -1,3 +1,5 @@
+$font-size: calc(8px + 2vmin);
+
 .wrapper {
   display: flex;
 
@@ -21,9 +23,9 @@
 }
 
 .checkbox {
-  flex: 0 0 calc(8px + 2vmin);
-  height: calc(8px + 2vmin);
-  background-size: calc(8px + 2vmin);
+  flex: 0 0 $font-size;
+  height: $font-size;
+  background-size: $font-size;
   background-image: url("../../../assets/images/icons/checkbox-unchecked.svg");
 
   &[data-checked="true"] {
@@ -31,7 +33,13 @@
   }
 }
 
+@media screen and (min-width: 650px) {
+  .item {
+    flex: 0 0 25%;
+  }
+}
+
 .label {
   margin-left: calc(2px + 1vmin);
-  font-size: calc(8px + 2vmin);
+  font-size: $font-size;
 }
