@@ -22,6 +22,12 @@ $font-size: calc(8px + 2vmin);
   cursor: pointer;
 }
 
+@media screen and (min-width: 650px) {
+  .item {
+    flex: 0 0 25%;
+  }
+}
+
 .checkbox {
   flex: 0 0 $font-size;
   height: $font-size;
@@ -30,12 +36,6 @@ $font-size: calc(8px + 2vmin);
 
   &[data-checked="true"] {
     background-image: url("../../../assets/images/icons/checkbox.svg");
-  }
-}
-
-@media screen and (min-width: 650px) {
-  .item {
-    flex: 0 0 25%;
   }
 }
 
