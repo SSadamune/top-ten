@@ -1,13 +1,12 @@
-$common-padding: calc(8px + 3vmin);
+@use "src/styles/variables";
 $icon-size: calc(18px + 6vmin);
-$item-height: calc(2px + 6vh);
 
 .settingIcon {
-  flex: 0 0 calc(18px + 6vmin);
-  width: calc(18px + 6vmin);
+  flex: 0 0 $icon-size;
+  width: $icon-size;
   background-image: url("../../assets/images/icons/settings.svg");
   background-size: $icon-size;
-  margin-left: $common-padding;
+  margin-left: variables.$common-padding;
   transition: all 0.3s ease 0s;
   cursor: pointer;
 
@@ -23,20 +22,20 @@ $item-height: calc(2px + 6vh);
 .menuContainer {
   position: fixed;
   inset: 0;
-  z-index: 100;
+  z-index: variables.$modal-z-index;
 }
 
 .menu {
   box-sizing: border-box;
   position: absolute;
-  left: $common-padding;
-  bottom: calc($common-padding * 2 + $icon-size);
+  left: variables.$common-padding;
+  bottom: calc(variables.$common-padding * 2 + $icon-size);
   display: flex;
-  width: calc(100vw - $common-padding * 2);
+  width: calc(100vw - variables.$common-padding * 2);
   min-height: 50vh;
   color: #5980aa;
   background-color: rgba(40, 44, 52, 0.95);
-  padding: $common-padding;
+  padding: variables.$common-padding;
   border: 2vmin solid #5980aa;
   border-radius: 5vmin;
   flex-direction: column;
@@ -60,7 +59,7 @@ $item-height: calc(2px + 6vh);
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
-  flex: 0 1 $item-height;
+  flex: 0 1 calc(2px + 6vh);
   justify-content: space-between;
   align-items: center;
   padding-bottom: calc(2px + 2vmin);
