@@ -19,9 +19,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
-    "test": "react-app-rewired test",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
@@ -46,12 +46,9 @@
     ]
   },
   "devDependencies": {
-    "customize-cra": "^1.0.0",
     "eslint": "^8.44.0",
     "gh-pages": "^5.0.0",
     "prettier": "^3.0.0",
-    "react-app-rewired": "^2.2.1",
-    "resolve-url-loader": "^5.0.0",
     "webpack": "^5.88.1",
     "webpack-cli": "^5.1.4"
   }
