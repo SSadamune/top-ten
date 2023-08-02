@@ -1,53 +1,55 @@
-@use "src/styles/variables";
+$common-padding: calc(8px + 3vmin);
+$icon-size: calc(18px + 6vmin);
+$item-height: calc(2px + 6vh);
 
 .settingIcon {
-  flex: 0 0 variables.$icon-size;
-  width: variables.$icon-size;
-  background-image: variables.icon("settings");
-  background-size: variables.$icon-size;
-  margin-left: variables.$common-padding;
+  flex: 0 0 calc(18px + 6vmin);
+  width: calc(18px + 6vmin);
+  background-image: url("../../assets/images/icons/settings.svg");
+  background-size: $icon-size;
+  margin-left: $common-padding;
   transition: all 0.3s ease 0s;
   cursor: pointer;
 
   &:hover {
-    background-image: variables.icon("settings-active");
+    background-image: url("../../assets/images/icons/settings-active.svg");
   }
 
   &[data-active="true"] {
-    background-image: variables.icon("settings-active");
+    background-image: url("../../assets/images/icons/settings-active.svg");
   }
 }
 
 .menuContainer {
   position: fixed;
   inset: 0;
-  z-index: variables.$modal-z-index;
+  z-index: 100;
 }
 
 .menu {
   box-sizing: border-box;
   position: absolute;
-  left: variables.$common-padding;
-  bottom: calc(variables.$common-padding * 2 + variables.$icon-size);
+  left: $common-padding;
+  bottom: calc($common-padding * 2 + $icon-size);
   display: flex;
-  width: calc(100vw - variables.$common-padding * 2);
+  width: calc(100vw - $common-padding * 2);
   min-height: 50vh;
-  color: variables.$color-primary-active;
-  background-color: variables.$color-background-transparent;
-  padding: variables.$common-padding;
-  border: 2vmin solid variables.$color-primary-active;
+  color: #5980aa;
+  background-color: rgba(40, 44, 52, 0.95);
+  padding: $common-padding;
+  border: 2vmin solid #5980aa;
   border-radius: 5vmin;
   flex-direction: column;
   font-size: calc(10px + 2vmin);
   font-weight: bold;
 }
 
-.resetButton {
-  padding: calc(2px + 1vmin) calc(2px + 2vmin);
+.clearButton {
+  min-width: 80px;
   height: calc(12px + 4vmin);
-  font-size: variables.$font-size-m;
-  color: variables.$color-background-transparent;
-  background-color: variables.$color-primary-active;
+  font-size: calc(8px + 2vmin);
+  color: rgba(40, 44, 52, 0.95);
+  background-color: #5980aa;
   border: none;
   border-radius: 4px;
   font-weight: bold;
@@ -58,13 +60,13 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
-  flex: 0 1 calc(2px + 6vh);
+  flex: 0 1 $item-height;
   justify-content: space-between;
   align-items: center;
   padding-bottom: calc(2px + 2vmin);
 
   &:not(:first-child) {
-    border-top: 2px dashed variables.$color-primary-active;
+    border-top: 2px dashed #5980aa;
     padding-top: calc(2px + 2vmin);
   }
 }

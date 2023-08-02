@@ -1,4 +1,4 @@
-@use "src/styles/variables";
+$font-size: calc(8px + 2vmin);
 
 .wrapper {
   display: flex;
@@ -29,17 +29,17 @@
 }
 
 .checkbox {
-  flex: 0 0 variables.$font-size-m;
-  height: variables.$font-size-m;
-  background-size: variables.$font-size-m;
-  background-image: variables.icon("checkbox-unchecked");
+  flex: 0 0 $font-size;
+  height: $font-size;
+  background-size: $font-size;
+  background-image: url("../../../assets/images/icons/checkbox-unchecked.svg");
 
   &[data-checked="true"] {
-    background-image: variables.icon("checkbox");
+    background-image: url("../../../assets/images/icons/checkbox.svg");
   }
 }
 
 .label {
   margin-left: calc(2px + 1vmin);
-  font-size: variables.$font-size-m;
+  font-size: $font-size;
 }
