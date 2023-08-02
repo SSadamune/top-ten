@@ -1,11 +1,10 @@
 @use "src/styles/variables";
-$icon-size: calc(18px + 6vmin);
 
 .settingIcon {
-  flex: 0 0 $icon-size;
-  width: $icon-size;
+  flex: 0 0 variables.$icon-size;
+  width: variables.$icon-size;
   background-image: url("../../assets/images/icons/settings.svg");
-  background-size: $icon-size;
+  background-size: variables.$icon-size;
   margin-left: variables.$common-padding;
   transition: all 0.3s ease 0s;
   cursor: pointer;
@@ -29,7 +28,7 @@ $icon-size: calc(18px + 6vmin);
   box-sizing: border-box;
   position: absolute;
   left: variables.$common-padding;
-  bottom: calc(variables.$common-padding * 2 + $icon-size);
+  bottom: calc(variables.$common-padding * 2 + variables.$icon-size);
   display: flex;
   width: calc(100vw - variables.$common-padding * 2);
   min-height: 50vh;
