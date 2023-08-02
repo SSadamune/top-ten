@@ -1,5 +1,7 @@
 @use "src/styles/variables";
 
+$body-height: calc(85vh - 12vmin);
+
 .app {
   text-align: center;
   display: flex;
@@ -12,7 +14,7 @@
   box-sizing: border-box;
   display: flex;
   justify-content: center;
-  flex: 0 1 calc(85vh - 12vmin);
+  flex: 0 1 $body-height;
   align-items: flex-end;
   overflow: hidden;
 }
@@ -31,12 +33,12 @@
 
 .footer {
   box-sizing: border-box;
-  flex: 0 1 calc(15vh + 12vmin);
+  flex: 0 1 calc(100% - $body-height);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: variables.$common-padding 0;
-  font-size: calc(8px + 2vmin);
+  font-size: variables.$font-size-m;
 }
 
 .drawButton {
@@ -49,7 +51,7 @@
   background-color: #4d6885;
   color: #282c34;
   text-align: center;
-  font-size: calc(14px + 4vmin);
+  font-size: variables.$font-size-l;
   transition: all 0.3s ease 0s;
   cursor: pointer;
   text-decoration: none;

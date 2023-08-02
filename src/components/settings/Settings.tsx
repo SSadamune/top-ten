@@ -36,7 +36,7 @@ export function Settings({
         setShowMenu(false);
       }
     },
-    [],
+    []
   );
 
   return (
@@ -80,7 +80,7 @@ export function Settings({
               <div>{`弃牌堆：${discardCardsQuantity} 张卡`}</div>
               <button
                 onClick={onClickClearDiscardPile}
-                className={styles.clearButton}
+                className={styles.resetButton}
               >
                 {`RESET`}
               </button>
