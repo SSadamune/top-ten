@@ -1,6 +1,19 @@
 // ======================================================
 // path
 
+// The Sass compiler does not recognize webpack's aliases when executing Sass functions,
+// therefore directly using aliases within a function will not be resolved correctly.
+$icons: (
+  "settings": "~@/assets/images/icons/settings.svg",
+  "settings-active": "~@/assets/images/icons/settings-active.svg",
+  "checkbox": "~@/assets/images/icons/checkbox.svg",
+  "checkbox-unchecked": "~@/assets/images/icons/checkbox-unchecked.svg",
+);
+
+@function icon($name) {
+  @return url(map-get($icons, $name));
+}
+
 // ======================================================
 // color
 

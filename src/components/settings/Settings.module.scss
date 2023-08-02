@@ -3,18 +3,18 @@
 .settingIcon {
   flex: 0 0 variables.$icon-size;
   width: variables.$icon-size;
-  background-image: url("~@/assets/images/icons/settings.svg");
+  background-image: variables.icon("settings");
   background-size: variables.$icon-size;
   margin-left: variables.$common-padding;
   transition: all 0.3s ease 0s;
   cursor: pointer;
 
   &:hover {
-    background-image: url("~@/assets/images/icons/settings-active.svg");
+    background-image: variables.icon("settings-active");
   }
 
   &[data-active="true"] {
-    background-image: url("~@/assets/images/icons/settings-active.svg");
+    background-image: variables.icon("settings-active");
   }
 }
 
