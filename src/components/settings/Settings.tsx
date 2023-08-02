@@ -1,4 +1,4 @@
-import { CARD_CATEGORY } from "../../constants";
+import { CARD_CATEGORY } from "@/constants";
 import { Card, QuestionCategory, ZoomLevel } from "../../types";
 import styles from "./Settings.module.scss";
 import { MouseEventHandler, useCallback, useRef, useState } from "react";
