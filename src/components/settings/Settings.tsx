@@ -1,4 +1,4 @@
-import { CARD_CATEGORY } from "../../constants";
+import { CARD_CATEGORY } from "@/constants";
 import { Card, QuestionCategory, ZoomLevel } from "../../types";
 import styles from "./Settings.module.scss";
 import { MouseEventHandler, useCallback, useRef, useState } from "react";
@@ -80,7 +80,7 @@ export function Settings({
               <div>{`弃牌堆：${discardCardsQuantity} 张卡`}</div>
               <button
                 onClick={onClickClearDiscardPile}
-                className={styles.clearButton}
+                className={styles.resetButton}
               >
                 {`RESET`}
               </button>

@@ -1,8 +1,12 @@
+@use "src/styles/variables";
+
+$body-height: calc(85vh - 12vmin);
+
 .app {
   text-align: center;
   display: flex;
   flex-direction: column;
-  background-color: #282c34;
+  background-color: variables.$color-background;
   height: 100vh;
 }
 
@@ -10,7 +14,7 @@
   box-sizing: border-box;
   display: flex;
   justify-content: center;
-  flex: 0 1 calc(85vh - 12vmin);
+  flex: 0 1 $body-height;
   align-items: flex-end;
   overflow: hidden;
 }
@@ -18,7 +22,7 @@
 .frame {
   max-width: 100%;
   max-height: calc(100% - 10px);
-  border: 5px solid #5980aa;
+  border: 5px solid variables.$color-primary-active;
   background-repeat: no-repeat;
   overflow: auto;
 
@@ -29,12 +33,12 @@
 
 .footer {
   box-sizing: border-box;
-  flex: 0 1 calc(15vh + 12vmin);
+  flex: 0 1 calc(100% - $body-height);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: calc(8px + 3vmin) 0 calc(8px + 3vmin);
-  font-size: calc(8px + 2vmin);
+  padding: variables.$common-padding 0;
+  font-size: variables.$font-size-m;
 }
 
 .drawButton {
@@ -44,17 +48,17 @@
   min-width: 140px;
   border: none;
   border-radius: calc(2px + 1vh);
-  background-color: #4d6885;
-  color: #282c34;
+  background-color: variables.$color-primary;
+  color: variables.$color-background;
   text-align: center;
-  font-size: calc(14px + 4vmin);
+  font-size: variables.$font-size-l;
   transition: all 0.3s ease 0s;
   cursor: pointer;
   text-decoration: none;
   font-weight: bold;
 
   &:hover {
-    background-color: #5980aa;
+    background-color: variables.$color-primary-active;
   }
 
   &:focus {

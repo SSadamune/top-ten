@@ -1,0 +1,43 @@
+// ======================================================
+// path
+
+// The Sass compiler does not recognize webpack's aliases when executing Sass functions,
+// therefore directly using aliases within a function will not be resolved correctly.
+$icons: (
+  "settings": "~@/assets/images/icons/settings.svg",
+  "settings-active": "~@/assets/images/icons/settings-active.svg",
+  "checkbox": "~@/assets/images/icons/checkbox.svg",
+  "checkbox-unchecked": "~@/assets/images/icons/checkbox-unchecked.svg",
+);
+
+@function icon($name) {
+  @return url(map-get($icons, $name));
+}
+
+// ======================================================
+// color
+
+// #282c34
+$color-background: rgb(40, 44, 52);
+$color-background-transparent: rgba($color-background, 0.95);
+// #4d6885
+$color-primary: rgb(77, 104, 133);
+// #5980aa
+$color-primary-active: rgb(89, 128, 170);
+
+// ======================================================
+// layout
+
+$common-padding: calc(8px + 3vmin);
+$icon-size: calc(18px + 6vmin);
+
+// ======================================================
+// font-size
+
+$font-size-m: calc(8px + 2vmin);
+$font-size-l: calc(14px + 4vmin);
+
+// ======================================================
+// z-index
+
+$modal-z-index: 100;
