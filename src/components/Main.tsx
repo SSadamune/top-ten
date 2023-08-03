@@ -10,7 +10,7 @@ import {
   imageSize,
 } from "../utils";
 import { images } from "../assets/images/sprites";
-import { Settings } from "./settings";
+import { SettingsMenu } from "./settingsMenu";
 
 function Main() {
   const [zoomLevel, setZoomLevel] = useState<ZoomLevel>("m");
@@ -20,7 +20,7 @@ function Main() {
   >(["normal", "act", "ippon"]);
   const [drawnCard, setDrawCard] = useState<Card | undefined>(undefined);
   const [discardCardsIndex, setDiscardCardsIndex] = useState<Set<number>>(
-    new Set(),
+    new Set()
   );
 
   const totalCardsQuantity = useMemo(
@@ -28,9 +28,9 @@ function Main() {
       selectedCategories.reduce(
         (accumulator, currentValue) =>
           accumulator + CARD_CATEGORY[currentValue].quantity,
-        0,
+        0
       ),
-    [selectedCategories],
+    [selectedCategories]
   );
 
   const image = useMemo(() => getSpritesImage(drawnCard), [drawnCard]);
@@ -60,18 +60,18 @@ function Main() {
     (category: QuestionCategory) => {
       selectedCategories.includes(category)
         ? setSelectedCategories(
-            selectedCategories.filter((item) => item !== category),
+            selectedCategories.filter((item) => item !== category)
           )
         : setSelectedCategories([category, ...selectedCategories]);
     },
-    [selectedCategories],
+    [selectedCategories]
   );
 
   const handleClickZoomLevelRadio = useCallback(
     (level: ZoomLevel) => {
       setZoomLevel(level);
     },
-    [setZoomLevel],
+    [setZoomLevel]
   );
 
   const handleClickClearDiscardPile = useCallback(() => {
@@ -99,7 +99,7 @@ function Main() {
         <button onClick={handleClickDraw} className={styles.drawButton}>
           draw!
         </button>
-        <Settings
+        <SettingsMenu
           selectedCategories={selectedCategories}
           selectedZoomLevel={zoomLevel}
           totalCardsQuantity={totalCardsQuantity}

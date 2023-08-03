@@ -1,6 +1,6 @@
 import { CARD_CATEGORY } from "@/constants";
 import { Card, QuestionCategory, ZoomLevel } from "../../types";
-import styles from "./Settings.module.scss";
+import styles from "./SettingsMenu.module.scss";
 import { MouseEventHandler, useCallback, useRef, useState } from "react";
 import { CategoriesCheckbox } from "./categoriesCheckbox";
 import { ZoomLevelRadio } from "./zoomLevelRadio";
@@ -15,7 +15,7 @@ type Props = {
   onClickZoomLevelRadio: (level: ZoomLevel) => void;
   onClickClearDiscardPile: () => void;
 };
-export function Settings({
+export function SettingsMenu({
   selectedCategories,
   selectedZoomLevel,
   totalCardsQuantity,
@@ -36,7 +36,7 @@ export function Settings({
         setShowMenu(false);
       }
     },
-    [],
+    []
   );
 
   return (
